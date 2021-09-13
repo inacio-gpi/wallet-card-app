@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841874912592",
+    "project_id": "card-android-app-bcb9a",
+    "storage_bucket": "card-android-app-bcb9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841874912592:android:e9a79292a041b884daa855",
+        "android_client_info": {
+          "package_name": "com.psiu.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841874912592-c11k994racshejdu1t5uk75q17jno3f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU5iqKyW1Ts0CfSumHtAKnEI9k_CGLv-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841874912592-c11k994racshejdu1t5uk75q17jno3f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
