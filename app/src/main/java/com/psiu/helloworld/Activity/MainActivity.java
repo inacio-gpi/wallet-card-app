@@ -2,7 +2,6 @@ package com.psiu.helloworld.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.psiu.helloworld.R;
 import com.psiu.helloworld.RecyclerViewCard;
-import com.psiu.helloworld.model.Card;
 import com.psiu.helloworld.model.CardValue;
 import com.psiu.helloworld.model.Category;
 
@@ -27,11 +25,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewCard.ItemClickListener {
 
-    private static final String TAG = "MainActivity";
     ArrayList<CardValue> array_cards;
     RecyclerViewCard adapter;
-    // Card retorno = null;
-    Card card;
     DatabaseReference database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCard.
                 array_cards.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     CardValue cardValue = dataSnapshot.getValue(CardValue.class);
+                    cardValue.setId(dataSnapshot.getKey());
                     // card.setCards((List<CardValue>) cardValue);
                     array_cards.add(cardValue);
                 }
@@ -113,14 +109,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewCard.
         Long limitDetail = adapter.getItem(position).getLimit();
         String numeroCartaoDetail = adapter.getItem(position).getCard_number();
         String imagemDetail = adapter.getItem(position).getCategory().getImage_path();
+        String cardId = adapter.getItem(position).getId();
 
         Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("cardId", Integer.toString(position));
+        // intent.putExtra("cardId", Integer.toString(position));
+        intent.putExtra("cardId", cardId);
         intent.putExtra("apelidoDetail", apelidoDetail);
         intent.putExtra("limitDetail", limitDetail);
         intent.putExtra("numeroCartaoDetail", numeroCartaoDetail);
         intent.putExtra("imagemDetail", imagemDetail);
         startActivity(intent);
     }
-
 }

@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/drawable/ic_padlock.xml" value="0.2796875" />
         <entry key="app/src/main/res/drawable/ic_trash.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/activity_card_details.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_edit_card.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/activity_edit_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_tela_repos.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item.xml" value="0.13405797101449277" />

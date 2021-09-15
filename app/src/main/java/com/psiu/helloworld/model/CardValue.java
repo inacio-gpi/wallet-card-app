@@ -9,11 +9,12 @@ import java.util.UUID;
 
 public class CardValue
 {
-    public String id = UUID.randomUUID().toString();;
-    public String name;
-    public String card_number;
-    public Long limit;
-    public Category category;
+    // private String id = UUID.randomUUID().toString();
+    private String id;
+    private String name;
+    private String card_number;
+    private Long limit;
+    private Category category;
 
     public CardValue() {}
 
@@ -27,6 +28,11 @@ public class CardValue
     public String getId() {
         return this.id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -61,7 +67,7 @@ public class CardValue
 
     public void salvar(DatabaseReference reference) {
         // = FirebaseDatabase.getInstance().getReference();
-        // reference.child("cards").push().setValue(this);
-        reference.child("cards").child(getId()).setValue(this);
+        reference.child("cards").push().setValue(this);
+        // reference.child("cards").child(getId()).setValue(this);
     }
 }

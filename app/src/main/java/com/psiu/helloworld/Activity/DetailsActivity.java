@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.psiu.helloworld.Activity.MainActivity;
 import com.psiu.helloworld.R;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         cardId = getIntent().getStringExtra("cardId");
         String apelidoDetail = getIntent().getStringExtra("apelidoDetail");
-        String limitDetail = getIntent().getStringExtra("limitDetail");
+        Long limitDetail = getIntent().getLongExtra("limitDetail", 0L);
         String numeroCartaoDetail = getIntent().getStringExtra("numeroCartaoDetail");
         String imagemDetail = getIntent().getStringExtra("imagemDetail");
 
@@ -40,21 +39,18 @@ public class DetailsActivity extends AppCompatActivity {
                 .load(imagemDetail)
                 .into(imagemCartaoDetail);
 
-
         tv_ApelidoDetail.setText(apelidoDetail);
-        tv_LimitDetail.setText(limitDetail);
+        tv_LimitDetail.setText(limitDetail.toString());
         tv_NumeroCartaoDetail.setText(numeroCartaoDetail);
     }
 
     /** Called when the user touches the button */
     public void removeCardDetail(View view) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        // reference.child("cards").push().setValue(this);
 
-        reference.child("cards").child(cardId).setValue(null);
+        reference.child("cards").child(cardId).removeValue();
 
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("card_id", cardId);
         startActivity(intent);
     }
 
